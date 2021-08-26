@@ -17,11 +17,14 @@ class ForgotScreen extends StatelessWidget {
             hintText: kEmailText,
           ),
           SizedBox(height: 15),
-          CustomeButton(
-            text: 'Reset Password',
-            color: Color(0xFF027A60),
-            textColor: Colors.white,
-          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: CustomButtonNew(
+              text: 'Reset Password',
+              color: Color(0xFF027A60),
+              textColor: Colors.white,
+            ),
+          )
         ],
       ),
     );
