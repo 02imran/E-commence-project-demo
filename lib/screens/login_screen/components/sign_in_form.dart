@@ -3,6 +3,7 @@ import 'package:login_ui/components/custom_button.dart';
 import 'package:login_ui/helpers/constants/constants.dart';
 import 'package:login_ui/screens/sign_up/signup_screen.dart';
 
+import 'divider.dart';
 import 'forgot_password.dart';
 import 'form_error.dart';
 
@@ -42,6 +43,18 @@ class _SignInFormState extends State<SignInForm> {
                 }
               },
               text: 'Log in',
+            ),
+            SizedBox(height: 10),
+            Devider(),
+            SizedBox(height: 10),
+            CustomButtonNew(
+              text: 'Sign up',
+              color: Colors.white,
+              textColor: Colors.black,
+              press: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SignUpScreen()));
+              },
             )
             // CustomeButton(
             //   text: 'Log in',
