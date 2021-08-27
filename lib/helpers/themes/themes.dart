@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 const Color white = Colors.white;
 const Color black = Colors.black;
 const Color grey = Colors.grey;
 
-Color kPrimaryColor = Colors.orange.shade900.withOpacity(0.85);
+Color kPrimaryColor = Color(0xFF027A60).withOpacity(0.5);
 
 SystemUiOverlayStyle uiConfig = SystemUiOverlayStyle(
   systemNavigationBarIconBrightness: Brightness.dark,

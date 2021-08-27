@@ -35,6 +35,7 @@ class _SignInFormState extends State<SignInForm> {
             SizedBox(height: 10),
             CustomButtonNew(
               color: Color(0xFF027A60),
+              textColor: Colors.white,
               press: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();

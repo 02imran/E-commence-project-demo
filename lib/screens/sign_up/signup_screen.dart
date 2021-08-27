@@ -3,8 +3,6 @@ import 'package:login_ui/screens/login_screen/components/header_text.dart';
 import 'package:login_ui/screens/sign_up/components/sign_up_form.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
