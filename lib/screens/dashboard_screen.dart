@@ -15,7 +15,6 @@ class DashboardScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text('This is the Drawer'),
-
               ],
             ),
           ),
@@ -51,7 +50,6 @@ class DashboardScreen extends StatelessWidget {
                     child: Center(child: Text('Book Menu 02 ')),
                   ),
                 ),
-
               ],
             ),
           ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:login_ui/components/custom_button.dart';
 import 'package:login_ui/helpers/themes/themes.dart';
+
+import 'splash_dot.dart';
 
 class SplashBody extends StatefulWidget {
   @override
@@ -50,24 +53,17 @@ class _SplashBodyState extends State<SplashBody> {
                 ),
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  splashData.length,
-                  (index) => Container(
-                    margin: EdgeInsets.only(left: 5),
-                    height: 10,
-                    width: 10,
-                    decoration: BoxDecoration(
-                      color: kPrimaryColor,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                  ),
-                ),
+            SplashDot(splashData: splashData, currentPage: _currentPage),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: CustomButtonNew(
+                text: 'Continue',
+                color: kPrimaryColor,
+                textColor: Colors.white,
               ),
+            ),
+            SizedBox(
+              height: 20,
             )
           ],
         ),

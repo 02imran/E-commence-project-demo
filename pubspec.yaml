@@ -46,12 +46,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   
-  assets:
-    - assets/images/
-    - assets/svg/
 
-<<<<<<< HEAD
-=======
+
+
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
@@ -68,7 +65,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
->>>>>>> e4e88e76b0acd1a6b56fbfb0aeea4656567166e6
+
   # fonts:
   #   - family: Schyler
   #     fonts:
