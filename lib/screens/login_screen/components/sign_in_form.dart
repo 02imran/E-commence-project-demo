@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:login_ui/components/custom_button.dart';
 import 'package:login_ui/helpers/constants/constants.dart';
+import 'package:login_ui/screens/dashboard_screen.dart';
 import 'package:login_ui/screens/sign_up/signup_screen.dart';
 
 import 'divider.dart';
@@ -17,6 +20,34 @@ class _SignInFormState extends State<SignInForm> {
   String? email;
   String? password;
   bool remembere = false;
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  signIn() async {
+    try {
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+      var authCradintial = userCredential.user;
+      print(authCradintial!.uid);
+      if (authCradintial.uid.isNotEmpty) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => DashboardScreen()));
+      } else {
+        Fluttertoast.showToast(msg: 'Something is wrong');
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        Fluttertoast.showToast(msg: 'No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        Fluttertoast.showToast(msg: 'Wrong password provided for that user.');
+      }
+    }
+  }
+
   final List<String> errors = [];
   @override
   Widget build(BuildContext context) {
@@ -39,8 +70,7 @@ class _SignInFormState extends State<SignInForm> {
               press: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignUpScreen()));
+                  signIn();
                 }
               },
               text: 'Log in',
@@ -57,18 +87,6 @@ class _SignInFormState extends State<SignInForm> {
                     MaterialPageRoute(builder: (context) => SignUpScreen()));
               },
             )
-            // CustomeButton(
-            //   text: 'Log in',
-            //   color: Color(0xFF027A60),
-            //   textColor: Colors.white,
-            //   press: () {
-            //     if (_formKey.currentState!.validate()) {
-            //       _formKey.currentState!.save();
-            //       Navigator.push(context,
-            //           MaterialPageRoute(builder: (context) => SignUpScreen()));
-            //     }
-            //   },
-            // ),
           ],
         ),
       ),
@@ -77,6 +95,7 @@ class _SignInFormState extends State<SignInForm> {
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
+      controller: _passwordController,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
         if (value.isNotEmpty && errors.contains(kPassNullError)) {
@@ -122,6 +141,7 @@ class _SignInFormState extends State<SignInForm> {
 
   TextFormField buildEmailFormField() {
     return TextFormField(
+      controller: _emailController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {

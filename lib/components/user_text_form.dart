@@ -14,16 +14,13 @@ class UserTextForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30),
-      child: TextFormField(
-        validator: (val) {},
-        decoration: InputDecoration(
-            prefixIcon: icondata,
-            suffixIcon: icon,
-            hintText: hintText,
-            contentPadding: EdgeInsets.symmetric(vertical: 15)),
-      ),
+    return TextFormField(
+      validator: (val) {},
+      decoration: InputDecoration(
+          prefixIcon: icondata,
+          suffixIcon: icon,
+          hintText: hintText,
+          contentPadding: EdgeInsets.symmetric(vertical: 15)),
     );
   }
 }

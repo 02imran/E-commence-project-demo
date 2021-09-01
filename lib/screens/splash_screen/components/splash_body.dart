@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_ui/components/custom_button.dart';
 import 'package:login_ui/helpers/themes/themes.dart';
+import 'package:login_ui/screens/login_screen/login_screen.dart';
 
 import 'splash_dot.dart';
 
@@ -14,15 +15,15 @@ class _SplashBodyState extends State<SplashBody> {
   List splashData = [
     {
       'image':
-          'https://firebasestorage.googleapis.com/v0/b/flutterfirebase-826b1.appspot.com/o/undraw_Online_chat_re_c4lx.png?alt=media&token=79485730-f394-4585-ab5d-6a6834c2d42f'
+          'https://firebasestorage.googleapis.com/v0/b/demoproject-d4964.appspot.com/o/undraw_Hello_re_3evm.png?alt=media&token=777e64c7-e23e-431f-8c1c-8dcb34c9593f'
     },
     {
       'image':
-          'https://firebasestorage.googleapis.com/v0/b/flutterfirebase-826b1.appspot.com/o/undraw_portfolio_feedback_6r17.png?alt=media&token=5c9f067c-1681-4bdd-a533-fd38a854f41f'
+          'https://firebasestorage.googleapis.com/v0/b/demoproject-d4964.appspot.com/o/undraw_Job_hunt_re_q203.png?alt=media&token=ebebf75b-d023-4a32-9563-74d56c782714'
     },
     {
       'image':
-          'https://firebasestorage.googleapis.com/v0/b/flutterfirebase-826b1.appspot.com/o/undraw_web_shopping_re_owap.png?alt=media&token=fca285ae-c2f3-4b32-b0ce-d2cc82cfb16c'
+          'https://firebasestorage.googleapis.com/v0/b/demoproject-d4964.appspot.com/o/undraw_Sync_files_re_ws4c.png?alt=media&token=96327d60-824d-4796-80c1-fe0289e7eb4f'
     }
   ];
   @override
@@ -60,6 +61,10 @@ class _SplashBodyState extends State<SplashBody> {
                 text: 'Continue',
                 color: kPrimaryColor,
                 textColor: Colors.white,
+                press: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => LoginScreen()));
+                },
               ),
             ),
             SizedBox(

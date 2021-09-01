@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class Devider extends StatelessWidget {
@@ -8,13 +7,16 @@ class Devider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 30),
-      child: Row(children: <Widget>[
-        Expanded(child: Divider(color: Colors.black,)),
-        Text(" or "),
-        Expanded(child: Divider(color: Colors.black,)),
-      ]),
-    );
+    return Row(children: <Widget>[
+      Expanded(
+          child: Divider(
+        color: Colors.black,
+      )),
+      Text(" or "),
+      Expanded(
+          child: Divider(
+        color: Colors.black,
+      )),
+    ]);
   }
 }
