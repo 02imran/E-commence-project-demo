@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:login_ui/components/botton_nav_bar.dart';
 import 'package:login_ui/components/custom_button.dart';
 import 'package:login_ui/helpers/constants/constants.dart';
-import 'package:login_ui/screens/dashboard_screen.dart';
 import 'package:login_ui/screens/sign_up/signup_screen.dart';
 
 import 'divider.dart';
@@ -35,7 +35,7 @@ class _SignInFormState extends State<SignInForm> {
       print(authCradintial!.uid);
       if (authCradintial.uid.isNotEmpty) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (_) => DashboardScreen()));
+            context, MaterialPageRoute(builder: (_) => BottonNavBar()));
       } else {
         Fluttertoast.showToast(msg: 'Something is wrong');
       }
